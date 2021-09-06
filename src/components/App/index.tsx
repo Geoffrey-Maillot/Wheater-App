@@ -1,21 +1,20 @@
 // == Import npm
 import React from 'react';
 
-// == Import
-import reactLogo from './react-logo.svg';
-import './styles.css';
+// == Import Style
+import './styles.scss';
 
-interface Props {
-  title: string;
-};
-
-const Title = ({title}: Props) => <h1>{title}</h1>
+// Impoet components =>
+import TodayWeater from 'src/components/TodayWeater';
+import Hightlights from 'src/components/Hightlights';
 
 // == Composant
 const App = () => (
   <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <Title title={"composant: App"}/>
+    <div className="app_container-flex">
+      <TodayWeater />
+      <Hightlights />
+    </div>
   </div>
 );
 

@@ -1,0 +1,22 @@
+.app {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto 0 auto;
+
+  &_container-flex {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1162px) {
+  .app_container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    height: 100vh;
+  }
+}

@@ -1,0 +1,56 @@
+@use '/src/styles/vars';
+
+.hightlights {
+  width: 100%;
+  background-color: vars.$primary;
+  padding: 23px;
+
+  .otherDays {
+    width: 100%;
+    max-width: 816px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .otherDay {
+      max-width: 120px;
+      min-width: 108px;
+      height: 177px;
+      padding: 20px;
+
+      margin: 10px 8px;
+
+      background-color: vars.$secondary;
+
+      text-align: center;
+      color: vars.$grey;
+      font-size: 1em;
+
+      &-image {
+        width: 60px;
+        margin: 10px auto 30px auto;
+      }
+
+      &_temp {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+//MediaQuerries
+
+@media screen and (min-width: 1162px) {
+  .hightlights {
+    width: 68%;
+    height: 1023px;
+
+    .otherDays {
+      margin-top: 116px;
+    }
+  }
+}
