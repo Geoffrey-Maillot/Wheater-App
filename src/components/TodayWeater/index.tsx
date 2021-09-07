@@ -7,9 +7,17 @@ import { MdGpsFixed } from 'react-icons/md';
 
 //Import Image =>
 import wheaterImage from '/src/assets/images/LightCloud.png';
+import Form from 'src/components/Form';
+import Search from '../Form/index';
 
-const TodayWeater = () => (
+interface Props {
+  searchIsOpen: boolean;
+}
+
+const TodayWeater = ({ searchIsOpen = true }: Props) => (
   <section className="todayWeater left">
+    {/*Form*/}
+    {searchIsOpen && <Form />}
     {/* Search */}
     <div className="search">
       <button className="search-city" type="button">

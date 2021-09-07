@@ -8,6 +8,8 @@
   background-color: #1e213a;
   color: vars.$textLightGrey;
   text-align: center;
+  position: relative;
+  z-index: 1;
 
   .search {
     width: 100%;
@@ -68,13 +70,12 @@
     justify-content: space-between;
 
     font-size: 1.125em;
-
   }
 }
 
 // Media Querries
 
-@media screen and (min-width: 1162px) {
+@media screen and (min-width: 1163px) {
   .todayWeater {
     width: 32%;
     height: 1023px;

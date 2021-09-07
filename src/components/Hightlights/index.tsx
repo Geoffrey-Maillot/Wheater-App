@@ -6,6 +6,7 @@ import './styles.scss';
 
 // Import Components =>
 import OtherDay from 'src/components/Hightlights/OtherDay';
+import TodayHightlights from 'src/components/Hightlights/TodayHightlights';
 
 const dataOtherDays = [
   {
@@ -48,6 +49,7 @@ const Hightlights = () => (
         <OtherDay key={day.date} {...day} />
       ))}
     </div>
+    <TodayHightlights />
   </section>
 );
 
