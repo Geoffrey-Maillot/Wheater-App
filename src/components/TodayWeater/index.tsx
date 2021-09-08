@@ -14,7 +14,7 @@ interface Props {
   searchIsOpen: boolean;
 }
 
-const TodayWeater = ({ searchIsOpen = true }: Props) => (
+const TodayWeater = ({ searchIsOpen = false }: Props) => (
   <section className="todayWeater left">
     {/*Form*/}
     {searchIsOpen && <Form />}

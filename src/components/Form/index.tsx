@@ -10,26 +10,32 @@ import { CgClose } from 'react-icons/cg';
 
 const Search = () => (
   <div className="search-section">
-    <div className="searchClose">
-      <CgClose />
-    </div>
-    <form className="search-form">
+    <button type="button" className="search-section_close">
+      <CgClose color="#fff" size="1.5em" />
+    </button>
+    <form className="search-section_form">
       <div className="input-container">
         <input
-          className="input"
+          className="input-container--input"
           type="text"
           name="localisation"
           placeholder="search location"
         />
-        <div className="input-image">
-          <HiOutlineSearch />
+        <div className="input-container--image">
+          <HiOutlineSearch size="1.2em" color="#616475" />
         </div>
       </div>
       <button className="search-form--button">Search</button>
     </form>
-    <div className="search-favori">London</div>
-    <div className="search-favori">Barcelona</div>
-    <div className="search-favori">Long Beach</div>
+    <button type="button" className="search-section_favori">
+      London
+    </button>
+    <button type="button" className="search-section_favori">
+      Barcelona
+    </button>
+    <button type="button" className="search-section_favori">
+      Long Beach
+    </button>
   </div>
 );
 

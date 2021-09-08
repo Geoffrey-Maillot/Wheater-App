@@ -144,7 +144,8 @@
 @media screen and (min-width: 1163px) {
   .hightlights {
     width: 68%;
-    height: 1023px;
+    height: 910px;
+    max-height: 100vh;
 
     .otherDays {
       margin-top: 116px;
