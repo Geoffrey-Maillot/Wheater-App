@@ -107,3 +107,33 @@
     }
   }
 }
+
+// Animation
+
+// In
+.animation-entrance {
+  animation: left-entrance both 0.2s ease-out;
+}
+
+@keyframes left-entrance {
+  0% {
+    transform: translateX(-500px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// Out
+.animation-exit {
+  animation: left-exit both 0.2s ease-out;
+}
+
+@keyframes left-exit {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}

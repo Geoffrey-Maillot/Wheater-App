@@ -54,10 +54,12 @@
   "dependencies": {
     "@babel/preset-typescript": "^7.14.5",
     "@types/react-icons": "^3.0.0",
+    "@types/recoil": "^0.0.9",
     "core-js": "3",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-icons": "^4.2.0"
+    "react-icons": "^4.2.0",
+    "recoil": "^0.4.1"
   }
 }

@@ -8,45 +8,52 @@ import { MdGpsFixed } from 'react-icons/md';
 //Import Image =>
 import wheaterImage from '/src/assets/images/LightCloud.png';
 import Form from 'src/components/Form';
-import Search from '../Form/index';
 
-interface Props {
-  searchIsOpen: boolean;
-}
+// Import Recoil =>
+import { useRecoilState } from 'recoil';
+import { searchIsOpen } from '../../Recoil/index';
 
-const TodayWeater = ({ searchIsOpen = true }: Props) => (
-  <section className="todayWeater left">
-    {/*Form*/}
-    {searchIsOpen && <Form />}
-    {/* Search */}
-    <div className="search">
-      <button className="search-city" type="button">
-        {' '}
-        Search for places
-      </button>
-      <button type="button" className="search-locate">
-        <MdGpsFixed color="e7e7eb" size="1.8em" />
-      </button>
-    </div>
-    {/* Wheater Image */}
-    <div className="weater-image">
-      <img src={wheaterImage} alt="wheater-image" />
-    </div>
-    {/* Temp */}
-    <div className="temp">
-      <span className="temp-number">15</span>{' '}
-      <span className="temp-unity">°C</span>
-    </div>
-    {/* Description */}
-    <div className="weaterDescription"> shower </div>
-    {/* Date */}
-    <div className="weaterDate">
-      <div className="weaterDate-day">Today</div> .{' '}
-      <div className="weaterDate-date">Fri. 5 Jun</div>
-    </div>
-    {/* Localisation */}
-    <div className="localisation"> Carcassonne </div>
-  </section>
-);
+const TodayWeater = () => {
+  // state recoil
+  const [isOpen, setIsOpen] = useRecoilState(searchIsOpen);
+
+  return (
+    <section className="todayWeater left">
+      {/*Form*/}
+      {isOpen && <Form />}
+      {/* Search */}
+      <div className="search">
+        <button
+          className="search-city"
+          type="button"
+          onClick={() => setIsOpen(true)}
+        >
+          Search for places
+        </button>
+        <button type="button" className="search-locate">
+          <MdGpsFixed color="e7e7eb" size="1.8em" />
+        </button>
+      </div>
+      {/* Wheater Image */}
+      <div className="weater-image">
+        <img src={wheaterImage} alt="wheater-image" />
+      </div>
+      {/* Temp */}
+      <div className="temp">
+        <span className="temp-number">15</span>{' '}
+        <span className="temp-unity">°C</span>
+      </div>
+      {/* Description */}
+      <div className="weaterDescription"> shower </div>
+      {/* Date */}
+      <div className="weaterDate">
+        <div className="weaterDate-day">Today</div> .{' '}
+        <div className="weaterDate-date">Fri. 5 Jun</div>
+      </div>
+      {/* Localisation */}
+      <div className="localisation"> Carcassonne </div>
+    </section>
+  );
+};
 
 export default TodayWeater;
