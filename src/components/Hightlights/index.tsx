@@ -43,8 +43,13 @@ const dataOtherDays = [
 
 const Hightlights = () => (
   <section className="hightlights">
+    <button className="hightlights-button" type="button">
+      °C
+    </button>
+    <button className="hightlights-button" type="button">
+      °F
+    </button>
     <div className="otherDays">
-      {' '}
       {dataOtherDays.map((day) => (
         <OtherDay key={day.date} {...day} />
       ))}

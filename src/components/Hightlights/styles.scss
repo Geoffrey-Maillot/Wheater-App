@@ -5,6 +5,28 @@
   background-color: vars.$primary;
   padding: 23px;
 
+  position: relative;
+
+  &-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    color: vars.$grey;
+    background-color: #585676;
+    font-weight: 500;
+
+    position: absolute;
+    top: 36px;
+    right: 125px;
+
+    display: none;
+  }
+
+  &-button:nth-last-child(4) {
+    right: 180px;
+  }
+
   .otherDays {
     width: 100%;
     max-width: 744px;
@@ -146,6 +168,10 @@
     width: 68%;
     height: 910px;
     max-height: 100vh;
+
+    &-button {
+      display: block;
+    }
 
     .otherDays {
       margin-top: 116px;
