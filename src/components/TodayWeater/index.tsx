@@ -10,13 +10,12 @@ import wheaterImage from '/src/assets/images/LightCloud.png';
 import Form from 'src/components/Form';
 
 // Import Recoil =>
-import { useRecoilState } from 'recoil';
-import { searchIsOpen } from '../../Recoil/index';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { searchIsOpen, weather } from '../../Recoil/index';
 
 const TodayWeater = () => {
   // state recoil
   const [isOpen, setIsOpen] = useRecoilState(searchIsOpen);
-
   return (
     <section className="todayWeater left">
       {/*Form*/}

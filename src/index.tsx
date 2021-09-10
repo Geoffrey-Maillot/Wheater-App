@@ -14,7 +14,7 @@ import App from 'src/components/App';
 //    => crée une structure d'objets imbriqués (DOM virtuel)
 const rootReactElement = (
   <RecoilRoot>
-    <App />
+      <App />
   </RecoilRoot>
 );
 // 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
