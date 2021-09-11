@@ -7,6 +7,10 @@
 
   position: relative;
 
+  & img {
+    height: 58px;
+  }
+
   &-button {
     width: 40px;
     height: 40px;
@@ -29,7 +33,7 @@
 
   .otherDays {
     width: 100%;
-    max-width: 744px;
+    max-width: 756px;
     margin: 20px auto;
     display: flex;
     flex-direction: row;

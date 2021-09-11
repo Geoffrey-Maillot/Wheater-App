@@ -14,20 +14,23 @@ import {
   useSetRecoilState,
 } from 'recoil';
 import { weather } from 'src/Recoil';
-import { searchCity } from '../../Recoil/index';
 
 // == Composant
 const App = () => {
   const weatherValue = useRecoilValueLoadable(weather);
+
+  if (weatherValue.state === 'loading') return <div>chargement...</div>;
+  if (weatherValue.state === 'hasError') {
+    return <div>Erreur de récupération des données</div>;
+  }
+
   console.log(weatherValue.contents);
 
   return (
     <div className="app">
       <div className="app_container-flex">
-        <pre>{JSON.stringify(weatherValue.contents)}</pre>
-
-        <TodayWeater />
-        <Hightlights />
+        <TodayWeater {...weatherValue.contents} />
+        <Hightlights {...weatherValue.contents} />
       </div>
     </div>
   );

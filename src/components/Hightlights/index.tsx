@@ -8,40 +8,26 @@ import './styles.scss';
 import OtherDay from 'src/components/Hightlights/OtherDay';
 import TodayHightlights from 'src/components/Hightlights/TodayHightlights';
 
-const dataOtherDays = [
-  {
-    date: 'tomorow',
-    max: 16,
-    min: 11,
-  },
-  {
-    date: 'sunday',
-    max: 16,
-    min: 11,
-  },
-  {
-    date: 'monday',
-    max: 16,
-    min: 11,
-  },
-  {
-    date: 'monday',
-    max: 16,
-    min: 11,
-  },
-  {
-    date: 'monday',
-    max: 16,
-    min: 11,
-  },
-  {
-    date: 'monday',
-    max: 16,
-    min: 11,
-  },
-];
+interface Props {
+  consolidated_weather: [
+    {
+      id: number;
+      key: number;
+      min_temp: number;
+      max_temp: number;
+      applicable_date: string;
+      wind_speed: number;
+      wind_direction: number;
+      wind_direction_compass: string;
+      humidity: number;
+      visibility: number;
+      air_pressure: number;
+      weather_state_name: string;
+    },
+  ];
+}
 
-const Hightlights = () => (
+const Hightlights = ({ consolidated_weather }: Props) => (
   <section className="hightlights">
     <button className="hightlights-button" type="button">
       °C
@@ -50,11 +36,11 @@ const Hightlights = () => (
       °F
     </button>
     <div className="otherDays">
-      {dataOtherDays.map((day) => (
-        <OtherDay key={day.date} {...day} />
+      {consolidated_weather.map((day) => (
+        <OtherDay key={day.id} {...day} />
       ))}
     </div>
-    <TodayHightlights />
+    <TodayHightlights {...consolidated_weather[0]} />
   </section>
 );
 
