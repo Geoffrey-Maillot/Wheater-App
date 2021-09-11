@@ -2,13 +2,12 @@ import { atom, RecoilValue, selector } from 'recoil';
 import axiosInstance from 'src/axios';
 
 // Search Component
-
 export const searchIsOpen = atom({
   key: 'searchIsOpen',
   default: false,
 });
 
-// Fetch Data From Api Weather
+// Fetch Data From Api Weather =>
 
 export const searchCity = atom({
   key: 'searcCity',
@@ -32,4 +31,11 @@ export const weather = selector({
       .then((response) => response.data)
       .catch((error) => console.error(error));
   },
+});
+
+// index Weather
+
+export const indexWeather = atom({
+  key: 'indexWeather',
+  default: 0,
 });

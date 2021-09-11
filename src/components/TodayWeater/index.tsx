@@ -12,7 +12,7 @@ import Form from 'src/components/Form';
 
 // Import Recoil =>
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { searchIsOpen, weather } from '../../Recoil/index';
+import { searchIsOpen, indexWeather } from '../../Recoil/index';
 
 interface Props {
   title: string;
@@ -22,8 +22,9 @@ interface Props {
 }
 
 const TodayWeater = ({ title, consolidated_weather }: Props) => {
+  const index = useRecoilValue(indexWeather);
   const { weather_state_name, applicable_date, max_temp } =
-    consolidated_weather[0];
+    consolidated_weather[index];
 
   const weatherImg = weather_state_name.split(' ').join('');
 

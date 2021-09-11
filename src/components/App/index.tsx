@@ -24,8 +24,6 @@ const App = () => {
     return <div>Erreur de récupération des données</div>;
   }
 
-  console.log(weatherValue.contents);
-
   return (
     <div className="app">
       <div className="app_container-flex">
