@@ -11,7 +11,8 @@ const axiosInstance = axios.create({
       'GET,PUT,POST,DELETE,PATCH,OPTIONS, Authorization',
     'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
     // withCredentials: true,
-    //  mode: 'no-cors',
+    mode: 'cors',
+    credentials: 'include',
   },
 });
 

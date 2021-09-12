@@ -20,11 +20,11 @@ import { useSetRecoilState } from 'recoil';
 import { indexWeather } from '../../Recoil/index';
 
 const OtherDay = ({
-  applicable_date,
+  applicable_date, // date on this format : yyyy-mmm-dd
   max_temp,
   min_temp,
-  weather_state_name,
-  index,
+  weather_state_name, // image name
+  index, // array of day's index to choose data to display
 }: Props) => {
   const weatherImg = weather_state_name.split(' ').join('');
 
@@ -35,7 +35,7 @@ const OtherDay = ({
       <div className="otherDay-date">{days(applicable_date)}</div>
       <div className="otherDay-image">
         <img
-          src={require(`/src/assets/images/${weatherImg}.png`).default}
+          src={require(`src/assets/images/${weatherImg}.png`).default}
           alt="wheater"
         />
       </div>

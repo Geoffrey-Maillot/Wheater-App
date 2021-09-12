@@ -13,6 +13,6 @@ const days = [
 @returns - String - Day of the week in this format : Monday
  */
 
-const daysWeek = (date = '2021-09-11') => days[new Date(date).getDay()];
+const daysWeek = (date: string) => days[new Date(date).getDay()];
 
 export default daysWeek;

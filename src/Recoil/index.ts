@@ -33,9 +33,14 @@ export const weather = selector({
   },
 });
 
-// index Weather
-
+// day to display
 export const indexWeather = atom({
   key: 'indexWeather',
   default: 0,
+});
+
+// favorite cities
+export const favoriteCities = atom({
+  key: 'favoriteCities',
+  default: ['London', 'Barcelona', 'Long Beach'],
 });

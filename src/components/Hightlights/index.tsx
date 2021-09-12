@@ -32,6 +32,7 @@ interface Props {
 }
 
 const Hightlights = ({ consolidated_weather }: Props) => {
+  // day to display
   const index = useRecoilValue(indexWeather);
 
   return (
