@@ -73,6 +73,26 @@
 
     font-size: 1.125em;
   }
+
+  .localisation {
+    position: relative;
+
+    &_button {
+      position: absolute;
+      top: -5px;
+      right: 83px;
+      border: none;
+      background-color: transparent;
+
+      &-svg {
+        color: vars.$grey;
+      }
+
+      &-svg:hover {
+        color: vars.$primary;
+      }
+    }
+  }
 }
 
 // Media Querries

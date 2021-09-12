@@ -4,6 +4,7 @@ import React from 'react';
 import './styles.scss';
 // Import React-icons =>
 import { MdGpsFixed } from 'react-icons/md';
+import { IoIosAddCircleOutline } from 'react-icons/io';
 //Import Utils
 import date from 'src/utils/todayDate';
 
@@ -12,7 +13,7 @@ import Form from 'src/components/Form';
 
 // Import Recoil =>
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { searchIsOpen, indexWeather } from '../../Recoil/index';
+import { searchIsOpen, indexWeather, favoriteCities } from '../../Recoil/index';
 
 interface Props {
   title: string;
@@ -23,6 +24,7 @@ interface Props {
 
 const TodayWeater = ({ title, consolidated_weather }: Props) => {
   const index = useRecoilValue(indexWeather);
+
   const { weather_state_name, applicable_date, max_temp } =
     consolidated_weather[index];
 
@@ -30,6 +32,19 @@ const TodayWeater = ({ title, consolidated_weather }: Props) => {
 
   // state recoil
   const [isOpen, setIsOpen] = useRecoilState(searchIsOpen);
+  const [cities, setCities] = useRecoilState(favoriteCities);
+
+  const addFavorite = () => {
+    //I check that the city is not already in favorite
+    const findCity = cities.find((city) => city === title);
+    if (findCity) console.log(findCity);
+    // Afficher un message
+    else {
+      setCities([...cities, title]);
+    }
+  };
+
+  // Return ==>
   return (
     <section className="todayWeater left">
       {/*Form*/}
@@ -67,7 +82,20 @@ const TodayWeater = ({ title, consolidated_weather }: Props) => {
         <div className="weaterDate-date">{date(applicable_date)}</div>
       </div>
       {/* Localisation */}
-      <div className="localisation"> {title} </div>
+      <div className="localisation">
+        {title}
+        <button
+          type="button"
+          className="localisation_button"
+          title="Add to favorite"
+          onClick={addFavorite}
+        >
+          <IoIosAddCircleOutline
+            className="localisation_button-svg"
+            size="1.8em"
+          />
+        </button>
+      </div>
     </section>
   );
 };
