@@ -8,6 +8,7 @@ import './styles.scss';
 import TodayWeater from 'src/components/TodayWeater';
 import Hightlights from 'src/components/Hightlights';
 import Spinner from 'src/components/Spinner';
+import Error from 'src/components/Error';
 
 import { useRecoilValueLoadable } from 'recoil';
 import { weather } from 'src/Recoil';
@@ -17,9 +18,7 @@ const App = () => {
   const weatherValue = useRecoilValueLoadable(weather);
 
   if (weatherValue.state === 'loading') return <Spinner />;
-  if (weatherValue.state === 'hasError') {
-    return <div>Erreur de récupération des données</div>;
-  }
+  if (weatherValue.state === 'hasError') return <Error />;
 
   return (
     <div className="app">

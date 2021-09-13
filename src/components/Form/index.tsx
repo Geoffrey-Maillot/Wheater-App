@@ -76,17 +76,29 @@ const Search = () => {
         </div>
         <button className="search-form--button">Search</button>
       </form>
-      {cities.map((city) => (
-        <button
-          type="button"
-          className="search-section_favori"
-          key={UUID()}
-          name={city}
-          onClick={handlerOnClick}
+      <div className="search-section_favories">
+        {cities.map((city) => (
+          <button
+            type="button"
+            className="search-section_favories-favorie"
+            key={UUID()}
+            name={city}
+            onClick={handlerOnClick}
+          >
+            {city}
+          </button>
+        ))}
+      </div>
+      <p className="search-section--info">
+        To know the list of available cities click{' '}
+        <a
+          style={{ textDecoration: 'underline' }}
+          href="https://www.metaweather.com/fr/"
+          target="_blank"
         >
-          {city}
-        </button>
-      ))}
+          here
+        </a>
+      </p>
     </div>
   );
 };

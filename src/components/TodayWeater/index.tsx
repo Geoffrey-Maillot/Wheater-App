@@ -1,5 +1,5 @@
 // Import React =>
-import React from 'react';
+import React, { useState } from 'react';
 // Import Style =>
 import './styles.scss';
 // Import React-icons =>
@@ -30,17 +30,30 @@ const TodayWeater = ({ title, consolidated_weather }: Props) => {
 
   const weatherImg = weather_state_name.split(' ').join('');
 
-  // state recoil
+  // state recoil =>
   const [isOpen, setIsOpen] = useRecoilState(searchIsOpen);
   const [cities, setCities] = useRecoilState(favoriteCities);
+
+  // local State =>
+  let [message, setMessage] = useState(''); // Message when add city in favorite
+  let [displayMessage, setDisplayMessage] = useState(false); // Display message
 
   const addFavorite = () => {
     //I check that the city is not already in favorite
     const findCity = cities.find((city) => city === title);
-    if (findCity) console.log(findCity);
-    // Afficher un message
-    else {
+    if (findCity) {
+      setMessage('This city is already in favorite');
+      setDisplayMessage(true);
+      setTimeout(() => {
+        setDisplayMessage(false);
+      }, 1500);
+    } else {
       setCities([...cities, title]);
+      setMessage('Add to favorite');
+      setDisplayMessage(true);
+      setTimeout(() => {
+        setDisplayMessage(false);
+      }, 1500);
     }
   };
 
@@ -95,6 +108,9 @@ const TodayWeater = ({ title, consolidated_weather }: Props) => {
             size="1.8em"
           />
         </button>
+        <div className={`localisation_message ${displayMessage && 'isActive'}`}>
+          {message}
+        </div>
       </div>
     </section>
   );

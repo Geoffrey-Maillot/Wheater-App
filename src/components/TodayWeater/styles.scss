@@ -76,6 +76,7 @@
 
   .localisation {
     position: relative;
+    margin-bottom: 50px;
 
     &_button {
       position: absolute;
@@ -91,6 +92,21 @@
       &-svg:hover {
         color: vars.$primary;
       }
+    }
+
+    &_message {
+      display: none;
+      position: absolute;
+      top: 50px;
+      color: vars.$grey;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-weight: 500;
+    }
+
+    .isActive {
+      display: block;
     }
   }
 }

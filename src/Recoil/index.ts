@@ -29,7 +29,10 @@ export const weather = selector({
       .then(([data]) => data.woeid)
       .then((woeid) => axiosInstance.get(`/${woeid}`))
       .then((response) => response.data)
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.log(error);
+        throw new Error(error);
+      });
   },
 });
 
