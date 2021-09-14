@@ -27,13 +27,16 @@ const Search = () => {
 
   //handlerSubmit Form =>
   const handlerOnSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-    console.dir(evt);
     evt.preventDefault();
-    setSearchCity(city);
+    setSearchCity({
+      query: city,
+    });
   };
 
   const handlerOnClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
-    setSearchCity(evt.target.name);
+    setSearchCity({
+      query: evt.target.name,
+    });
     handlerOnClickCloseButton();
   };
 

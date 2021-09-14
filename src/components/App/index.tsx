@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // == Import Style
 import './styles.scss';
@@ -10,7 +10,7 @@ import Hightlights from 'src/components/Hightlights';
 import Spinner from 'src/components/Spinner';
 import Error from 'src/components/Error';
 
-import { useRecoilValueLoadable } from 'recoil';
+import { useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 import { weather } from 'src/Recoil';
 
 // == Composant

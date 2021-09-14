@@ -9,31 +9,43 @@ export const searchIsOpen = atom({
 
 // Fetch Data From Api Weather =>
 
+interface searchParams {
+  query?: string;
+  lattlong?: string;
+}
 export const searchCity = atom({
   key: 'searcCity',
-  default: 'toulouse',
+  default: <searchParams>{
+    query: 'paris',
+  },
 });
 
-export const weather = selector({
-  key: 'weather',
-  get: ({ get }) => {
-    const city = get(searchCity);
+/*export const dataWeatherApi = selector({
+  key: 'dataWeatherApi',
+  get: ({ get }) => {},
+});
+*/
 
-    return axiosInstance
-      .get('/search/', {
-        params: {
-          query: city,
-        },
-      })
-      .then((response) => response.data)
-      .then(([data]) => data.woeid)
-      .then((woeid) => axiosInstance.get(`/${woeid}`))
-      .then((response) => response.data)
-      .catch((error) => {
-        console.log(error);
-        throw new Error(error);
-      });
-  },
+export const weather = atom({
+  key: 'weather',
+  default: selector({
+    key: 'weatherData',
+    get: ({ get }) => {
+      const paramsRequest = get(searchCity);
+
+      return axiosInstance
+        .get('/search/', {
+          params: paramsRequest,
+        })
+        .then((response) => response.data)
+        .then(([data]) => data.woeid)
+        .then((woeid) => axiosInstance.get(`/${woeid}`))
+        .then((response) => response.data)
+        .catch((error) => {
+          throw new Error(error);
+        });
+    },
+  }),
 });
 
 // day to display

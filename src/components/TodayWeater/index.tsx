@@ -1,10 +1,16 @@
 // Import React =>
 import React, { useState } from 'react';
+
+// Import Axios =>
+import axiosInstance from 'src/axios';
+
 // Import Style =>
 import './styles.scss';
+
 // Import React-icons =>
 import { MdGpsFixed } from 'react-icons/md';
 import { IoIosAddCircleOutline } from 'react-icons/io';
+
 //Import Utils
 import date from 'src/utils/todayDate';
 
@@ -12,8 +18,14 @@ import date from 'src/utils/todayDate';
 import Form from 'src/components/Form';
 
 // Import Recoil =>
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { searchIsOpen, indexWeather, favoriteCities } from '../../Recoil/index';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import {
+  searchIsOpen,
+  indexWeather,
+  favoriteCities,
+  weather,
+  searchCity,
+} from 'src/Recoil/index';
 
 interface Props {
   title: string;
@@ -56,6 +68,19 @@ const TodayWeater = ({ title, consolidated_weather }: Props) => {
       }, 1500);
     }
   };
+  // Search by localisation
+  const setSearchCity = useSetRecoilState(searchCity);
+  const searchByLocalisation = () => {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setSearchCity({
+          lattlong: `${position.coords.latitude.toFixed(
+            2,
+          )},${position.coords.longitude.toFixed(2)}`,
+        });
+      });
+    }
+  };
 
   // Return ==>
   return (
@@ -71,7 +96,11 @@ const TodayWeater = ({ title, consolidated_weather }: Props) => {
         >
           Search for places
         </button>
-        <button type="button" className="search-locate">
+        <button
+          type="button"
+          className="search-locate"
+          onClick={searchByLocalisation}
+        >
           <MdGpsFixed color="e7e7eb" size="1.8em" />
         </button>
       </div>

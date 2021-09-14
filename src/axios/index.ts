@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL:
-    'https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location',
+  baseURL: 'http://localhost:8181/www.metaweather.com/api/location',
   timeout: 3000,
   headers: {
     'Access-Control-Allow-Origin': '*',
@@ -17,3 +16,5 @@ const axiosInstance = axios.create({
 });
 
 export default axiosInstance;
+
+//https://cors-anywhere.herokuapp.com/
