@@ -24,6 +24,7 @@ const TodayHightlights = ({
   visibility,
   air_pressure,
 }: Props) => {
+  const direction = wind_direction - 42;
   return (
     <section className="todayHightlights">
       <h2 className="todayHightlights_title"> Today's Hightlights </h2>
@@ -35,7 +36,12 @@ const TodayHightlights = ({
             <span>{wind_speed.toFixed(1)}</span>mph
           </p>
           <div className="direction">
-            <div className="direction-arrow">
+            <div
+              className="direction-arrow"
+              style={{
+                transform: `rotate(${direction.toFixed(0).toString()}deg)`,
+              }}
+            >
               <TiLocationArrowOutline color="fff" size="1.2em" />
             </div>
             <div>{wind_direction_compass}</div>
