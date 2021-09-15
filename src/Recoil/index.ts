@@ -1,4 +1,4 @@
-import { atom, RecoilValue, selector } from 'recoil';
+import { atom, selector } from 'recoil';
 import axiosInstance from 'src/axios';
 
 // Search Component
@@ -19,12 +19,6 @@ export const searchCity = atom({
     query: 'paris',
   },
 });
-
-/*export const dataWeatherApi = selector({
-  key: 'dataWeatherApi',
-  get: ({ get }) => {},
-});
-*/
 
 export const weather = atom({
   key: 'weather',

@@ -4,7 +4,7 @@ import React from 'react';
 //Import style =>
 import './styles.scss';
 
-// Import Utils
+// Import Utils =>
 import days from 'src/utils/DayOfWeek';
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
   index: number;
 }
 
-// Import Recoil
+// Import Recoil =>
 import { useSetRecoilState } from 'recoil';
 import { indexWeather } from '../../Recoil/index';
 
@@ -26,10 +26,13 @@ const OtherDay = ({
   weather_state_name, // image name
   index, // array of day's index to choose data to display
 }: Props) => {
+  // Format the name of the api image to match the name of the asset image
   const weatherImg = weather_state_name.split(' ').join('');
 
+  // Change the index according to the day click
   const setIndex = useSetRecoilState(indexWeather);
 
+  // Return =>
   return (
     <div className="otherDay" onClick={() => setIndex(index)}>
       <div className="otherDay-date">{days(applicable_date)}</div>

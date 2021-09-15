@@ -10,14 +10,18 @@ import Hightlights from 'src/components/Hightlights';
 import Spinner from 'src/components/Spinner';
 import Error from 'src/components/Error';
 
+// Import Recoil =>
 import { useRecoilValueLoadable, useSetRecoilState } from 'recoil';
 import { weather } from 'src/Recoil';
 
 // == Composant
 const App = () => {
+  // Data Api =>
   const weatherValue = useRecoilValueLoadable(weather);
 
+  // Wait promise from Api =>
   if (weatherValue.state === 'loading') return <Spinner />;
+  // If Error =>
   if (weatherValue.state === 'hasError') return <Error />;
 
   return (

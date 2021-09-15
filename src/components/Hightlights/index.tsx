@@ -9,7 +9,7 @@ import OtherDay from 'src/components/Hightlights/OtherDay';
 import TodayHightlights from 'src/components/Hightlights/TodayHightlights';
 
 //Import Recoil
-import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import { indexWeather, isCelius } from 'src/Recoil/index';
 
 interface Props {
@@ -32,10 +32,12 @@ interface Props {
 }
 
 const Hightlights = ({ consolidated_weather }: Props) => {
-  // day to display
+  // Day to display =>
   const index = useRecoilValue(indexWeather);
+  // Bool to display C° or F°
   const [celcius, setCelcius] = useRecoilState(isCelius);
 
+  // Return =>
   return (
     <section className="hightlights">
       <button
@@ -57,6 +59,7 @@ const Hightlights = ({ consolidated_weather }: Props) => {
           <OtherDay key={day.id} {...day} index={index} />
         ))}
       </div>
+      {/* display the weather data according to the day click  */}
       <TodayHightlights {...consolidated_weather[index]} />
     </section>
   );

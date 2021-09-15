@@ -35,8 +35,9 @@ interface Props {
 }
 
 const TodayWeater = ({ title, consolidated_weather }: Props) => {
-  // index of Day
+  // Index of Day
   const index = useRecoilValue(indexWeather);
+  // Bool to display C° or F°
   const celcius = useRecoilValue(isCelius);
 
   const { weather_state_name, applicable_date, max_temp } =
@@ -47,14 +48,16 @@ const TodayWeater = ({ title, consolidated_weather }: Props) => {
 
   const weatherImg = weather_state_name.split(' ').join('');
 
-  // state recoil =>
+  // Open Close Search Form
   const [isOpen, setIsOpen] = useRecoilState(searchIsOpen);
+  // Favorite Cities
   const [cities, setCities] = useRecoilState(favoriteCities);
 
   // local State =>
   let [message, setMessage] = useState(''); // Message when add city in favorite
   let [displayMessage, setDisplayMessage] = useState(false); // Display message
 
+  // Add city in favorite
   const addFavorite = () => {
     //I check that the city is not already in favorite
     const findCity = cities.find((city) => city === title);

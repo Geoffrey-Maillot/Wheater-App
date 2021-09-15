@@ -3,9 +3,11 @@ import React from 'react';
 
 //Import React Icons
 import { TiLocationArrowOutline } from 'react-icons/ti';
+
 // Import Styles
 import './styles.scss';
 
+// Interface =>
 interface Props {
   wind_speed: number;
   wind_direction: number;
@@ -24,7 +26,10 @@ const TodayHightlights = ({
   visibility,
   air_pressure,
 }: Props) => {
+  // Compass home position
   const direction = wind_direction - 42;
+
+  // Return =>
   return (
     <section className="todayHightlights">
       <h2 className="todayHightlights_title"> Today's Hightlights </h2>

@@ -37,9 +37,10 @@ const Search = () => {
     handlerOnClickCloseButton();
   };
 
+  // Search with favorites cities
   const handlerOnClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
     setSearchCity({
-      query: evt.target.name,
+      query: (evt.target as HTMLButtonElement).value,
     });
     handlerOnClickCloseButton();
   };
@@ -95,7 +96,7 @@ const Search = () => {
             type="button"
             className="search-section_favories-favorie"
             key={UUID()}
-            name={city}
+            value={city}
             onClick={handlerOnClick}
           >
             {city}
