@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8181/www.metaweather.com/api/location',
+  baseURL:
+    'https://perso-proxy-server.herokuapp.com/www.metaweather.com/api/location',
   timeout: 3000,
   headers: {
     'Access-Control-Allow-Origin': '*',
