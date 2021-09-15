@@ -27,6 +27,11 @@
     display: none;
   }
 
+  .is-selected {
+    background-color: vars.$grey;
+    color: vars.$primary;
+  }
+
   &-button:nth-last-child(4) {
     right: 180px;
   }
@@ -176,7 +181,7 @@
 
 //MediaQuerries
 
-@media screen and (min-width: 1163px) {
+@media screen and (min-width: 1180px) {
   .hightlights {
     width: 68%;
     height: 910px;

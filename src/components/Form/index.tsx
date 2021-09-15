@@ -1,11 +1,14 @@
 // Import React =>
-import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
+import React, { useState } from 'react';
 
 // Import Style =>
 import './styles.scss';
 
 //Import UUID
 import { UUID } from 'src/utils/randomUUID';
+
+// Import data =>
+import { listCities } from 'src/utils/listCityAvailable';
 
 // Import React Icon =>
 import { HiOutlineSearch } from 'react-icons/hi';
@@ -31,6 +34,7 @@ const Search = () => {
     setSearchCity({
       query: city,
     });
+    handlerOnClickCloseButton();
   };
 
   const handlerOnClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
@@ -66,6 +70,7 @@ const Search = () => {
       <form className="search-section_form" onSubmit={handlerOnSubmit}>
         <div className="input-container">
           <input
+            list="city"
             className="input-container--input"
             type="text"
             name="localisation"
@@ -73,6 +78,11 @@ const Search = () => {
             value={city}
             onChange={(evt) => setCity(evt.target.value)}
           />
+          <datalist id="city">
+            {listCities.map((city) => (
+              <option key={city} value={city} />
+            ))}
+          </datalist>
           <div className="input-container--image">
             <HiOutlineSearch size="1.2em" color="#616475" />
           </div>

@@ -59,3 +59,9 @@ export const favoriteCities = atom({
   key: 'favoriteCities',
   default: ['London', 'Barcelona', 'Long Beach'],
 });
+
+// bool C° or F°
+export const isCelius = atom({
+  key: 'isCelcius',
+  default: true,
+});

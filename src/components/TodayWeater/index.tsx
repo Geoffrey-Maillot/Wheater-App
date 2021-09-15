@@ -23,8 +23,8 @@ import {
   searchIsOpen,
   indexWeather,
   favoriteCities,
-  weather,
   searchCity,
+  isCelius,
 } from 'src/Recoil/index';
 
 interface Props {
@@ -35,10 +35,15 @@ interface Props {
 }
 
 const TodayWeater = ({ title, consolidated_weather }: Props) => {
+  // index of Day
   const index = useRecoilValue(indexWeather);
+  const celcius = useRecoilValue(isCelius);
 
   const { weather_state_name, applicable_date, max_temp } =
     consolidated_weather[index];
+
+  // Temp in Fahreineit
+  const max_tempFrh = (max_temp * 9) / 5 + 32;
 
   const weatherImg = weather_state_name.split(' ').join('');
 
@@ -113,8 +118,10 @@ const TodayWeater = ({ title, consolidated_weather }: Props) => {
       </div>
       {/* Temp */}
       <div className="temp">
-        <span className="temp-number">{Math.floor(max_temp)}</span>{' '}
-        <span className="temp-unity">°C</span>
+        <span className="temp-number">
+          {Math.floor(celcius ? max_temp : max_tempFrh)}
+        </span>
+        <span className="temp-unity">{celcius ? 'C°' : 'F°'}</span>
       </div>
       {/* Description */}
       <div className="weaterDescription"> {weather_state_name} </div>
