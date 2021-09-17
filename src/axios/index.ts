@@ -17,5 +17,3 @@ const axiosInstance = axios.create({
 });
 
 export default axiosInstance;
-
-//https://cors-anywhere.herokuapp.com/

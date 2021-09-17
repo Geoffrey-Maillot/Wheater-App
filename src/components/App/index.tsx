@@ -12,10 +12,18 @@ import Error from 'src/components/Error';
 
 // Import Recoil =>
 import { useRecoilValueLoadable, useSetRecoilState } from 'recoil';
-import { weather } from 'src/Recoil';
+import { weather, searchCity } from 'src/Recoil';
 
 // == Composant
 const App = () => {
+  // Fist query =>
+  const setSearchCity = useSetRecoilState(searchCity);
+  useEffect(() => {
+    setSearchCity({
+      query: 'paris',
+    });
+  }, []);
+
   // Data Api =>
   const weatherValue = useRecoilValueLoadable(weather);
 

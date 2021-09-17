@@ -16,7 +16,6 @@ interface Props {
   consolidated_weather: [
     {
       id: number;
-      key: number;
       min_temp: number;
       max_temp: number;
       applicable_date: string;
@@ -33,7 +32,7 @@ interface Props {
 
 const Hightlights = ({ consolidated_weather }: Props) => {
   // Day to display =>
-  const index = useRecoilValue(indexWeather);
+  const dayIndex = useRecoilValue(indexWeather);
   // Bool to display C° or F°
   const [celcius, setCelcius] = useRecoilState(isCelius);
 
@@ -60,7 +59,7 @@ const Hightlights = ({ consolidated_weather }: Props) => {
         ))}
       </div>
       {/* display the weather data according to the day click  */}
-      <TodayHightlights {...consolidated_weather[index]} />
+      <TodayHightlights {...consolidated_weather[dayIndex]} />
     </section>
   );
 };

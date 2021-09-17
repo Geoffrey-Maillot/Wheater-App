@@ -36,12 +36,12 @@ interface Props {
 
 const TodayWeater = ({ title, consolidated_weather }: Props) => {
   // Index of Day
-  const index = useRecoilValue(indexWeather);
+  const dayIndex = useRecoilValue(indexWeather);
   // Bool to display C° or F°
   const celcius = useRecoilValue(isCelius);
 
   const { weather_state_name, applicable_date, max_temp } =
-    consolidated_weather[index];
+    consolidated_weather[dayIndex];
 
   // Temp in Fahreineit
   const max_tempFrh = (max_temp * 9) / 5 + 32;
