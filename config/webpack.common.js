@@ -50,6 +50,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
+              sourceMap: true,
               cacheDirectory: true,
             },
           },
@@ -72,7 +73,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: { outputPath: 'images/' },
+            options: { outputPath: 'images/', sourceMap: true, },
           },
         ],
       },

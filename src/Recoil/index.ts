@@ -13,10 +13,11 @@ interface searchParams {
   query?: string;
   lattlong?: string;
 }
+
 export const searchCity = atom({
   key: 'searcCity',
   default: <searchParams>{
-    query: 'paris',
+    query: '',
   },
 });
 

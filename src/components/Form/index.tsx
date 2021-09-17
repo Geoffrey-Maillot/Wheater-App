@@ -21,7 +21,7 @@ import { searchIsOpen, searchCity, favoriteCities } from '../../Recoil/index';
 const Search = () => {
   // State =>
   const [isClosing, setIsClosing] = useState(false); // animation className
-  const [city, setCity] = useState(''); // search City
+  let [city, setCity] = useState(''); // search City
 
   // state recoil
   const closeSearch = useSetRecoilState(searchIsOpen); // close Form Component
@@ -31,10 +31,13 @@ const Search = () => {
   //handlerSubmit Form =>
   const handlerOnSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    setSearchCity({
-      query: city,
-    });
-    handlerOnClickCloseButton();
+    city = city.trim();
+    if (city) {
+      setSearchCity({
+        query: city,
+      });
+      handlerOnClickCloseButton();
+    }
   };
 
   // Search with favorites cities
