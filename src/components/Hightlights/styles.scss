@@ -1,10 +1,8 @@
 @use '/src/styles/vars';
 
 .hightlights {
-  width: 100%;
   background-color: vars.$primary;
   padding: 23px;
-
   position: relative;
 
   & img {
@@ -186,6 +184,7 @@
   .hightlights {
     width: 68%;
     height: 100vh;
+    overflow: auto;
 
     &-button {
       display: block;

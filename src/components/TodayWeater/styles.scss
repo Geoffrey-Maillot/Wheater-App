@@ -2,7 +2,6 @@
 
 .todayWeater {
   width: 100%;
-  height: 100%;
   min-width: 290px;
   padding: 18px;
   background-color: #1e213a;
@@ -10,8 +9,6 @@
   text-align: center;
   position: relative;
   z-index: 1;
-
-  overflow: hidden;
 
   .search {
     width: 100%;
@@ -116,6 +113,7 @@
 @media screen and (min-width: 1180px) {
   .todayWeater {
     width: 32%;
-    max-height: 100vh;
+    height: 100vh;
+    overflow: auto;
   }
 }
