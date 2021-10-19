@@ -17,7 +17,7 @@ interface searchParams {
 export const searchCity = atom({
   key: 'searcCity',
   default: <searchParams>{
-    query: '',
+    query: 'paris',
   },
 });
 
